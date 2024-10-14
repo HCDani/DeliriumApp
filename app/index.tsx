@@ -1,9 +1,13 @@
+
 import * as React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Button, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 function HomeScreen() {
     return (
@@ -13,23 +17,26 @@ function HomeScreen() {
     );
 }
 
-function SettingsScreen() {
+function HospitalScreen() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Settings screen</Text>
+            <Text>Hospital screen</Text>
         </View>
     );
 }
 
 
-const Tab = createBottomTabNavigator();
 
 export default function App() {
     return (
-        <Tab.Navigator tabBar={props => <TabBar {...props} />} backBehavior="history" screenOptions={{ headerShown: false }}>
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
-        </Tab.Navigator>
+        <View>
+            <Tab.Navigator tabBar={props => <TabBar {...props} />} backBehavior="history" screenOptions={{ headerShown: false }}>
+                <Drawer.Screen name="Home" component={HomeScreen} />
+            </Tab.Navigator>
+            <Drawer.Navigator>
+                <Drawer.Screen name="Hospital" component={HospitalScreen} />
+            </Drawer.Navigator>
+        </View>
     );
 }
 function TabBar({ navigation }) {
@@ -52,3 +59,5 @@ function TabBar({ navigation }) {
        </View>
     );
 }
+
+
