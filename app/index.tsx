@@ -1,36 +1,54 @@
-// In App.js in a new project
-
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 function HomeScreen() {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Home Screen</Text>
-        </View>
-    );
-}
-function DetailsScreen() {
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Details Screen</Text>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Home screen</Text>
         </View>
     );
 }
 
-const Stack = createNativeStackNavigator();
-
-function App() {
+function SettingsScreen() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Home" component={HomeScreen} />
-                <Stack.Screen name="Details" component={DetailsScreen} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Settings screen</Text>
+        </View>
     );
 }
 
-export default App;
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+    return (
+        <Tab.Navigator tabBar={props => <TabBar {...props} />} backBehavior="history" screenOptions={{ headerShown: false }}>
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+        </Tab.Navigator>
+    );
+}
+function TabBar({ navigation }) {
+    return (
+        <View>
+        <Button
+            title="Home"
+            onPress={() => {
+                // Navigate using the navigation prop that you received
+                navigation.navigate('Home');
+            }}
+        />
+         <Button
+            title="Back"
+            onPress={() => {
+                //Navigate back to the previous screen.
+                navigation.goBack();
+            }}
+        />
+       </View>
+    );
+}
