@@ -1,10 +1,10 @@
-// differentialdiagnoser.tsx
+// ICD.tsx
 import React from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, Button } from 'react-native';
 import useApiData, { API_URLS, STORAGE_KEYS } from '../../hooks/useApiData'; // Adjust the import path
 
-export default function Differentialdiagnoser() {
-    const { data, loading, error } = useApiData(API_URLS.DIFFERENTIAL_DIAGNOSES, STORAGE_KEYS.DIFFERENTIAL_DIAGNOSES_DATA); // Use the hook
+export default function ICD({ navigation }) {
+    const { data, loading, error } = useApiData(API_URLS.SCREENINGS, STORAGE_KEYS.SCREENINGS_DATA); // Use the hook for ICD-10
 
     if (loading) {
         return (
@@ -24,8 +24,13 @@ export default function Differentialdiagnoser() {
 
     return (
         <View style={{ padding: 16 }}>
-            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Differentialdiagnoser!</Text>
+            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>ICD-10 Data</Text>
             {data && <Text style={{ marginTop: 16 }}>{JSON.stringify(data)}</Text>}
+            <Button
+                title="Go back"
+                onPress={() => navigation.goBack()} // Navigate back to the previous screen
+                color="#007BFF" // Optional: change the button color
+            />
         </View>
     );
 }
