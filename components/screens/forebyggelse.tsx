@@ -4,7 +4,7 @@ import { Text, View, ActivityIndicator } from 'react-native';
 import useApiData, { API_URLS, STORAGE_KEYS } from '../../hooks/useApiData'; // Adjust the import path
 
 export default function Forebyggelse() {
-    const { data, loading, error } = useApiData(API_URLS.SCREENINGS, STORAGE_KEYS.SCREENINGS_DATA); // Use the hook
+    const { data, loading, error } = useApiData(API_URLS.PREVENTION, STORAGE_KEYS.PREVENTION_DATA); // Use the hook
 
     if (loading) {
         return (

@@ -28,7 +28,7 @@ export const STORAGE_KEYS = {
     READ_MORE_DATA: 'readMoreData', // For Read More
 };
 
-
+//Should rework so it does only 1 request to get all data from API call.
 const useApiData = (url, storageKey) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);

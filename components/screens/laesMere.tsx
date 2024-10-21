@@ -4,7 +4,7 @@ import { Text, View, ActivityIndicator } from 'react-native';
 import useApiData, { API_URLS, STORAGE_KEYS } from '../../hooks/useApiData'; // Adjust the import path
 
 export default function LaesMere() {
-    const { data, loading, error } = useApiData(API_URLS.READ_MORE, STORAGE_KEYS.READ_MORE_DATA); // Use the hook
+    const { data, loading, error } = useApiData('https://augustinas03007.wixsite.com/my-site-1/_functions-dev/sectionData?' , 'LearnMoreTest' ); // Use the hook
 
     if (loading) {
         return (
