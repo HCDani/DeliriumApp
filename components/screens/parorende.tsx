@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Button, Text, View } from 'react-native';
 
-export default function Hjemme() {
+export default function App() {
     return (
         <View>
-            <Text> Hjemme page! </Text>
+            <Text> Pårørende  page! </Text>
         </View>
     );
 }
