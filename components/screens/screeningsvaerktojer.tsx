@@ -1,7 +1,16 @@
 // Screeningsvaerktojer.js
 import React from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, Button } from 'react-native';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import useApiData, { API_URLS, STORAGE_KEYS } from '../../hooks/useApiData'; // Adjust the import path
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import hjemme from "../screens/hjemme";
+import hospital from "../screens/hospital";
+import intensiv from "../screens/intensiv";
+
+const Tab = createBottomTabNavigator();
+const RootStack = createNativeStackNavigator();
 
 export default function Screeningsvaerktojer() {
     const { data, loading, error } = useApiData(API_URLS.SCREENINGS, STORAGE_KEYS.SCREENINGS_DATA); // Use the hook
@@ -23,9 +32,8 @@ export default function Screeningsvaerktojer() {
     }
 
     return (
-        <View style={{ padding: 16 }}>
-            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Screeningsværktøjer</Text>
-            {data && <Text style={{ marginTop: 16 }}>{JSON.stringify(data)}</Text>}
+        <View>
+            <Text> Screeningsværktøjer page! </Text>
         </View>
     );
 }

@@ -19,8 +19,8 @@ const Drawer = createDrawerNavigator();
 
 export default function App() {
     return (
-        <Drawer.Navigator initialRouteName="Tab">
-            <Drawer.Screen name="Tab" component={BottomTabs} />
+        <Drawer.Navigator initialRouteName="deliriumvaerktojet">
+            <Drawer.Screen name="Deliriumværktøjet" component={home} />
             <Drawer.Screen name="Symptomer" component={symptomer} />
             <Drawer.Screen name="Screeningsværktøjer" component={screeningsvaerktojer} />
             <Drawer.Screen name="Find og fjern årsagen " component={findOgFjernArsagen} />
