@@ -12,24 +12,16 @@ import intensiv from "../screens/intensiv";
 const Tab = createBottomTabNavigator();
 const RootStack = createNativeStackNavigator();
 
-export default function Screeningsvaerktojer() {
-    const { data, loading, error } = useApiData(API_URLS.SCREENINGS, STORAGE_KEYS.SCREENINGS_DATA); // Use the hook
-
-    if (loading) {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <ActivityIndicator size="large" color="#0000ff" />
-            </View>
-        );
-    }
-
-    if (error) {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ color: 'red' }}>{error}</Text>
-            </View>
-        );
-    }
+export default function App({ navigation }) {
+    React.useEffect(() => {
+        // Use `setOptions` to update the button that we previously specified.
+        // Now the button includes an `onPress` handler to update go back to the home sceen.
+        navigation.setOptions({
+          headerRight: () => (
+            <Button onPress={() => navigation.goBack()} title="Home" />
+          ),
+        });
+      }, [navigation]);
 
     return (
         <View>

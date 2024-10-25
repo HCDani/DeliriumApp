@@ -7,7 +7,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
-      <Button title="Screeningsværktøjer" onPress={() => navigation.navigate('Screeningsværktøjer')}/>
       <Button title="Symptomer" onPress={() => navigation.navigate('Symptomer')}/>
       <Button title="Screeningsværktøjer" onPress={() => navigation.navigate('Screeningsværktøjer')}/>
       <Button title="Årsagen" onPress={() => navigation.navigate('Årsagen')}/>
