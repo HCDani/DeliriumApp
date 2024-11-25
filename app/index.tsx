@@ -1,12 +1,24 @@
-import * as React from 'react';
-import { Button, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import DrawerNavigator from "../components/navigation/drawerNavigation";
-import StackNavigator from "../components/navigation/stackNavigation";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { WebView } from 'react-native-webview';
 
 export default function App() {
-    return (
-        <StackNavigator />
-    );
+  return (
+    <View style={styles.container}>
+      <WebView 
+        source={{ uri: 'https://delirium.hock.hu/arsagen/' }} 
+        style={styles.webview} 
+      />
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
+  webview: {
+    flex: 1,
+  },
+});
