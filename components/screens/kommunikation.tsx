@@ -3,7 +3,7 @@ import React from 'react';
 import { Text, View, ActivityIndicator, Button } from 'react-native';
 import useApiData, { API_URLS, STORAGE_KEYS } from '../../hooks/useApiData'; // Adjust the import path
 
-export default function App({ navigation }) {
+export default function Kommunikation({ navigation }) {
     React.useEffect(() => {
         // Use `setOptions` to update the button that we previously specified.
         // Now the button includes an `onPress` handler to update go back to the home sceen.

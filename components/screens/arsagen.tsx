@@ -1,6 +1,6 @@
 // findOgFjernArsagen.tsx
 import React from 'react';
-import { Text, View, ActivityIndicator, Button } from 'react-native';
+import { Text, View, Button } from 'react-native';
 import useApiData, { API_URLS, STORAGE_KEYS } from '../../hooks/useApiData'; // Adjust the import path
 
 export default function Arsagen({ navigation }) {

@@ -5,14 +5,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import useApiData, { API_URLS, STORAGE_KEYS } from '../../hooks/useApiData'; // Adjust the import path
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import hjemme from "../screens/hjemme";
-import hospital from "../screens/hospital";
-import intensiv from "../screens/intensiv";
+
 
 const Tab = createBottomTabNavigator();
 const RootStack = createNativeStackNavigator();
 
-export default function App({ navigation }) {
+export default function Screeningsvaerktojer ({ navigation }) {
     React.useEffect(() => {
         // Use `setOptions` to update the button that we previously specified.
         // Now the button includes an `onPress` handler to update go back to the home sceen.
