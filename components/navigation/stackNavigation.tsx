@@ -12,6 +12,7 @@ import kommunikation from "../screens/kommunikation";
 import handlinger from "../screens/handlinger";
 import laesMere from "../screens/laesMere";
 import parorende from "../screens/parorende";
+import webPage from "../screens/webPage"; // Import WebPage component
 
 
 const Stack = createNativeStackNavigator()
@@ -27,6 +28,7 @@ export default function App() {
             <Stack.Screen name="Handlinger" component={handlinger} options={{headerRight: () => (<Button title="Home"/>) }}  />
             <Stack.Screen name="LæsMere" component={laesMere}  options={{headerRight: () => (<Button title="Home"/>) }}  />
             <Stack.Screen name="Pårørende" component={parorende}  options={{headerRight: () => (<Button title="Home"/>) }}  />
+            <Stack.Screen name="WebView" component={webPage} options={{ title: "Web Page" }} />
         </Stack.Navigator>
     );
 }
