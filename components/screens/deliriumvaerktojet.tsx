@@ -1,5 +1,6 @@
 import React from 'react';
 import {Colors} from '@/constants/Colors';
+import { Text, View} from 'react-native';
 import CustomButton from '@/components/Button';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
@@ -16,6 +17,8 @@ type RootStackParamList = {
     Handlinger: undefined;
     LæsMere: undefined;
     Pårørende: undefined;
+    WebView: { url: string };
+    
 };
 
 
@@ -26,41 +29,64 @@ export default function Deliriumvaerktojet({navigation}: Props) {
             <CustomButton
                 label="Symptomer"
                 color={Colors.light.symptomer} // Light blue
-                onPress={() => navigation.navigate('Symptomer')}
+                onPress={() => navigation.navigate('WebView', {
+                    url: URL_BASE + 'Symptomer', })
+                }// Pass URL to WebView
             />
             <CustomButton
                 label="Screeningsværktøjer"
                 color={Colors.light.screeningsværktøjer} // Orange
-                onPress={() => navigation.navigate('Screeningsværktøjer')}
+                onPress={() => navigation.navigate('WebView', {
+                    url: URL_BASE + 'screeningsvaerktojer', // Pass URL to WebView
+                })
+                }
             />
             <CustomButton
                 label="Årsagen"
                 color={Colors.light.årsagen} // Light green
-                onPress={() => navigation.navigate('Årsagen')}
+                onPress={() => navigation.navigate('WebView', {
+                    url: URL_BASE + 'arsagen', // Pass URL to WebView
+                })
+                }
             />
             <CustomButton
                 label="Kommunikation"
                 color={Colors.light.kommunikation} // Tomato
-                onPress={() => navigation.navigate('Kommunikation')}
+                onPress={() => navigation.navigate('WebView', {
+                    url: URL_BASE + 'kommunikation', // Pass URL to WebView
+                })
+                }
             />
             <CustomButton
                 label="Handlinger"
                 color={Colors.light.handlinger} // Medium purple
-                onPress={() => navigation.navigate('Handlinger')}
+                onPress={() => navigation.navigate('WebView', {
+                    url: URL_BASE + 'handlinger', // Pass URL to WebView
+                })
+                }
             />
             <CustomButton
                 label="Læs Mere"
                 color={Colors.light.læsMere} // Gold
-                onPress={() => navigation.navigate('LæsMere')}
+                onPress={() => navigation.navigate('WebView', {
+                    url: URL_BASE + 'laes-mere', // Pass URL to WebView
+                })
+                }
             />
             <CustomButton
                 label="Pårørende"
                 color={Colors.light.pårørende} // Steel blue
-                onPress={() => navigation.navigate('Pårørende')}
+                onPress={() => navigation.navigate('WebView', {
+                    url: URL_BASE + 'parorende', // Pass URL to WebView
+                })
+                }
             />
-
-
-            <Text>Home Screen</Text>
+            
+        </View>
+        
+    );
+}
+/* <Text>Home Screen</Text>
             <Button
                 title="Symptomer"
                 onPress={() =>
@@ -117,8 +143,4 @@ export default function Deliriumvaerktojet({navigation}: Props) {
                     })
                 }
             />
-        </View>
-        
-    );
-}
-
+            */
