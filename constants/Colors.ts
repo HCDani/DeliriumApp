@@ -12,13 +12,13 @@ export const Colors = {
     text: '#11181C',
     background: '#fff',
     tint: tintColorLight, 
-      symptomer: '#ADD8E6', // Add your custom color
-      screeningsværktøjer: '#FFA500', // Add your custom color
-      årsagen: '#90EE90', // Add your custom color
-      kommunikation: '#FF6347', // Add your custom color
-      handlinger: '#9370DB', // Add your custom color
-      læsMere: '#FFD700', // Add your custom color
-      pårørende: '#4682B4', // Add your custom color
+      symptomer: '#ADD8E6', 
+      screeningsværktøjer: '#FFA500', 
+      årsagen: '#90EE90', 
+      kommunikation: '#FF6347', 
+      handlinger: '#9370DB',
+      læsMere: '#FFD700', 
+      pårørende: '#4682B4', 
     icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
