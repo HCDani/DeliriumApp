@@ -23,7 +23,7 @@ export default function Screeningsvaerktojer ({ navigation }) {
 
     return (
         <View>
-            <Text> Screeningsværktøjer page! </Text>
+            <Text style={{ fontSize: 24, fontWeight: 'bold' }}> Screeningsværktøjer page! </Text>
         </View>
     );
 }
