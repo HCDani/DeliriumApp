@@ -1,63 +1,81 @@
 import * as React from 'react';
 import { Button, Text, View } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import CustomButton from '@/components/Button';
+import { Colors } from '@/constants/Colors';
+import { StyleSheet } from 'react-native';
 
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+type RootStackParamList = {
+    WebView: { url: string };
+};
+
+type AppProps = {
+    navigation: NativeStackNavigationProp<RootStackParamList>;
+};
 const URL_BASE = "https://delirium.hock.hu/";
 
   export default function App({navigation}) {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.container}>
       <Text>Home Screen</Text>
-      <Button
-        title="Symptomer"
+      <CustomButton
+        label="Symptomer"
+        color="#ff7f50"
         onPress={() =>
           navigation.navigate('WebView', {
             url: URL_BASE + 'Symptomer', // Pass URL to WebView
           })
         }
       />
-      <Button
-        title="Screeningsværktøjer"
-        onPress={() =>
+      <CustomButton
+          label="Screeningsværktøjer"
+          color="#4682b4"
+          onPress={() =>
           navigation.navigate('WebView', {
             url: URL_BASE + 'screeningsvaerktojer', // Pass URL to WebView
           })
         }
       />
-      <Button
-        title="Årsagen"
+      <CustomButton 
+          label="Årsagen"
+          color="#6a5acd"
         onPress={() =>
           navigation.navigate('WebView', {
             url: URL_BASE + 'arsagen', // Pass URL to WebView
           })
         }
       />
-      <Button
-        title="Kommunikation"
+      <CustomButton 
+          label="Kommunikation"
+          color="#32cd32"
         onPress={() =>
           navigation.navigate('WebView', {
             url: URL_BASE + 'kommunikation', // Pass URL to WebView
           })
         }
       />
-      <Button
-        title="Handlinger"
+      <CustomButton
+        label="Handlinger"
+        color="#ffa500"
         onPress={() =>
           navigation.navigate('WebView', {
             url: URL_BASE + 'handlinger', // Pass URL to WebView
           })
         }
       />
-      <Button
-        title="Læs Mere"
+      <CustomButton
+        label="Læs Mere"
+        color="#ff4500"
         onPress={() =>
           navigation.navigate('WebView', {
             url: URL_BASE + 'laes-mere', // Pass URL to WebView
           })
         }
       />
-      <Button
-        title="Pårørende"
+      <CustomButton
+        label="Pårørende"
+        color='#FFC107'
         onPress={() =>
           navigation.navigate('WebView', {
             url: URL_BASE + 'parorende', // Pass URL to WebView
@@ -68,3 +86,17 @@ const URL_BASE = "https://delirium.hock.hu/";
         
     );
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: Colors.light.background, // Use background color from Colors
+    },
+    header: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: Colors.light.text, // Use text color from Colors
+        marginBottom: 20,
+    },
+});
