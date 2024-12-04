@@ -18,8 +18,81 @@ import webPage from "../screens/webPage"; // Import WebPage component
 const Stack = createNativeStackNavigator()
 
 export default function App() {
+    const HomeButton = ({ navigation }) => (
+        <Button title="Home" onPress={() => navigation.navigate("Deliriumværktøjet")} />
+    );
     return (
-        <Stack.Navigator initialRouteName="deliriumvaerktojet">
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Deliriumværktøjet">
+                <Stack.Screen name="Deliriumværktøjet" component={home} />
+                <Stack.Screen
+                    name="Symptomer"
+                    component={symptomer}
+                    options={({ navigation }) => ({
+                        headerRight: () => <HomeButton navigation={navigation} />,
+                    })}
+                />
+                <Stack.Screen
+                    name="Screeningsværktøjer"
+                    component={screeningsvaerktojer}
+                    options={({ navigation }) => ({
+                        headerRight: () => <HomeButton navigation={navigation} />,
+                    })}
+                />
+                <Stack.Screen
+                    name="Årsagen"
+                    component={arsagen}
+                    options={({ navigation }) => ({
+                        headerRight: () => <HomeButton navigation={navigation} />,
+                    })}
+                />
+                <Stack.Screen
+                    name="Kommunikation"
+                    component={kommunikation}
+                    options={({ navigation }) => ({
+                        headerRight: () => <HomeButton navigation={navigation} />,
+                    })}
+                />
+                <Stack.Screen
+                    name="Handlinger"
+                    component={handlinger}
+                    options={({ navigation }) => ({
+                        headerRight: () => <HomeButton navigation={navigation} />,
+                    })}
+                />
+                <Stack.Screen
+                    name="LæsMere"
+                    component={laesMere}
+                    options={({ navigation }) => ({
+                        headerRight: () => <HomeButton navigation={navigation} />,
+                    })}
+                />
+                <Stack.Screen
+                    name="Pårørende"
+                    component={parorende}
+                    options={({ navigation }) => ({
+                        headerRight: () => <HomeButton navigation={navigation} />,
+                    })}
+                />
+                <Stack.Screen
+                    name="WebView"
+                    component={webPage}
+                    options={({ navigation }) => ({
+                        title: "Web Page",
+                        headerLeft: () => (
+                            <Button
+                                title="Back"
+                                onPress={() => navigation.goBack()}
+                            />
+                        ),
+                    })}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+}
+/*
+ <Stack.Navigator initialRouteName="Deliriumværktøjet">
             <Stack.Screen name="Deliriumværktøjet" component={home} />
             <Stack.Screen name="Symptomer" component={symptomer} options={{headerRight: () => (<Button title="Home"/>) }} />
             <Stack.Screen name="Screeningsværktøjer" component={screeningsvaerktojer} options={{headerRight: () => (<Button title="Home"/>) }}  />
@@ -30,5 +103,4 @@ export default function App() {
             <Stack.Screen name="Pårørende" component={parorende}  options={{headerRight: () => (<Button title="Home"/>) }}  />
             <Stack.Screen name="WebView" component={webPage} options={{ title: "Web Page" }} />
         </Stack.Navigator>
-    );
-}
+ */

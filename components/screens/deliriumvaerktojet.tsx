@@ -30,7 +30,7 @@ export default function Deliriumvaerktojet({navigation}: Props) {
                 label="Symptomer"
                 color={Colors.light.symptomer} // Light blue
                 onPress={() => navigation.navigate('WebView', {
-                    url: URL_BASE + 'Symptomer', })
+                    url: 'https://delirium.hock.hu/Symptomer' , })
                 }// Pass URL to WebView
             />
             <CustomButton
