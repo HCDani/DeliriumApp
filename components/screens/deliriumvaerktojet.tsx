@@ -48,7 +48,7 @@ const URL_BASE = "https://delirium.hock.hu/";
       />
       <CustomButton
         label="Handlinger"
-        color="#ffa500"
+        color="#40e0d0"
         onPress={() =>
           navigation.navigate('WebView', {
             url: URL_BASE + 'handlinger', // Pass URL to WebView
@@ -66,7 +66,7 @@ const URL_BASE = "https://delirium.hock.hu/";
       />
       <CustomButton
         label="Pårørende"
-        color='#FFC107'
+        color='#ffd822'
         onPress={() =>
           navigation.navigate('WebView', {
             url: URL_BASE + 'parorende', // Pass URL to WebView
