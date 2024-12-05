@@ -4,15 +4,6 @@ import CustomButton from '@/components/Button';
 import { Colors } from '@/constants/Colors';
 import { StyleSheet } from 'react-native';
 
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
-type RootStackParamList = {
-    WebView: { url: string };
-};
-
-type AppProps = {
-    navigation: NativeStackNavigationProp<RootStackParamList>;
-};
 const URL_BASE = "https://delirium.hock.hu/";
 
   export default function App({navigation}) {
