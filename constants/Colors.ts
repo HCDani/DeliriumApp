@@ -14,6 +14,9 @@ export const Colors = {
     icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
+    button: '#0a7ea4', // Primary Button Color
+    border: '#E5E5E5', // Border Color
+    error: '#FF4D4F', // Error Messages
   },
   dark: {
     text: '#ECEDEE',
@@ -22,5 +25,20 @@ export const Colors = {
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
+    button: '#4F4F4F', // Primary Button Color for Dark Mode
+    border: '#3E3E3E', // Border Color
+    error: '#FF4D4F', // Error Messages
   },
+
 };
+  const Gradients = {
+    light: {
+      backgroundGradient: ['#fff', '#f3f4f6'], // Light gradient
+    },
+    dark: {
+      backgroundGradient: ['#151718', '#1F1F1F'], // Dark gradient
+    },
+  };
+
+  export { Gradients };
+

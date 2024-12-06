@@ -1,12 +1,23 @@
+import React from 'react';
 import { StyleSheet, View, Pressable, Text } from 'react-native';
-
-export default function Button({ label }) {
+import {Colors} from '@/constants/Colors';
+type ButtonProps = {
+    label: string;
+    color: string;
+    onPress: () => void;
+    theme?: 'light' | 'dark'; // Optional prop with a default value
+};
+export default function Button({ label, color, onPress, theme = 'light' }: ButtonProps) {
+    const themeColors = theme === 'dark' ? Colors.dark : Colors.light;
     return (
-        <View style={styles.buttonContainer}>
-            <Pressable style={styles.button} onPress={() => alert('You pressed a button.')}>
-                <Text style={styles.buttonLabel}>{label}</Text>
+        <View style={[styles.buttonContainer]}>
+            <Pressable
+                style={[styles.button, { backgroundColor: color }]}
+                onPress={onPress || (() => alert('You pressed a button.'))}
+            >
+                <Text style={[styles.buttonLabel]}>{label}</Text>
             </Pressable>
-        </View>
+        </View>  
     );
 }
 
@@ -17,7 +28,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 3,
+      
     },
     button: {
         borderRadius: 10,
@@ -33,5 +44,13 @@ const styles = StyleSheet.create({
     buttonLabel: {
         color: '#fff',
         fontSize: 16,
+        fontWeight: 'bold',
     },
 });
+/*
+ <View style={styles.buttonContainer}>
+            <Pressable style={styles.button} onPress={() => alert('You pressed a button.')}>
+                <Text style={styles.buttonLabel}>{label}</Text>
+            </Pressable>
+        </View>
+ */
