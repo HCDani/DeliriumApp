@@ -1,17 +1,67 @@
 import * as React from 'react';
-import { Button, Text, View } from 'react-native';
+import {  Text, View, StyleSheet } from 'react-native';
 import CustomButton from '@/components/Button';
 import { Colors } from '@/constants/Colors';
-import { StyleSheet } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+type RootStackParamList = {
+    WebView: { url: string };
+};
+
+type AppProps = {
+    navigation: NativeStackNavigationProp<RootStackParamList, 'WebView'>;
+  
+};
 
 const URL_BASE = "https://delirium.hock.hu/";
 
-  export default function App({navigation}) {
+  export default function App({navigation}: AppProps) {
     return (
       <View style={styles.container}>
-      <Text>Home Screen</Text>
+          <View style={styles.topButtonsContainer}>
+              {/* Professional Staff Button */}
+              <CustomButton
+                  label={
+                      <View style={styles.buttonContent}>
+                          <Icon name="work" size={20} color="white" style={styles.icon} />
+                          <Text style={styles.buttonText}>Professional Staff</Text>
+                      </View>
+                  }
+                  color="#57a40a"
+                  style={styles.customButton}
+                  onPress={() =>
+                      navigation.navigate('WebView', {
+                          url: URL_BASE + 'professional-staff', // Pass URL to WebView
+                      })
+                  }
+              />
+              {/* Relatives Button */}
+              <CustomButton
+                  label={
+                      <View style={styles.buttonContent}>
+                          <Icon name="family-restroom" size={20} color="white" style={styles.icon} />
+                          <Text style={styles.buttonText}>Relatives</Text>
+                      </View>
+                  }
+                  color="#8b0000"
+                  style={styles.customButton}
+                  onPress={() =>
+                      navigation.navigate('WebView', {
+                          url: URL_BASE + 'relatives', // Pass URL to WebView
+                      })
+                  }
+              />
+          </View>
+      <Text  style={styles.header}>Home Screen</Text>
       <CustomButton
-        label="Symptomer"
+          label={
+              <View style={styles.buttonContent}>
+                  <Icon name="healing" size={24} color="white" style={styles.icon} />
+                  <Text style={styles.buttonText}>Symptomer</Text>
+              </View>
+          }
         color="#ff7f50"
         onPress={() =>
           navigation.navigate('WebView', {
@@ -20,7 +70,12 @@ const URL_BASE = "https://delirium.hock.hu/";
         }
       />
       <CustomButton
-          label="Screeningsværktøjer"
+          label={
+              <View style={styles.buttonContent}>
+                  <Icon name="search" size={24} color="white" style={styles.icon} />
+                  <Text style={styles.buttonText}>Screeningsværktøjer</Text>
+              </View>
+          }
           color="#4682b4"
           onPress={() =>
           navigation.navigate('WebView', {
@@ -28,8 +83,13 @@ const URL_BASE = "https://delirium.hock.hu/";
           })
         }
       />
-      <CustomButton 
-          label="Årsagen"
+      <CustomButton
+          label={
+              <View style={styles.buttonContent}>
+                  <Icon name="info" size={24} color="white" style={styles.icon} />
+                  <Text style={styles.buttonText}>Årsagen</Text>
+              </View>
+          }
           color="#6a5acd"
         onPress={() =>
           navigation.navigate('WebView', {
@@ -37,8 +97,13 @@ const URL_BASE = "https://delirium.hock.hu/";
           })
         }
       />
-      <CustomButton 
-          label="Kommunikation"
+      <CustomButton
+          label={
+              <View style={styles.buttonContent}>
+                  <Icon name="chat" size={24} color="white" style={styles.icon} />
+                  <Text style={styles.buttonText}>Kommunikation</Text>
+              </View>
+          }
           color="#32cd32"
         onPress={() =>
           navigation.navigate('WebView', {
@@ -47,7 +112,12 @@ const URL_BASE = "https://delirium.hock.hu/";
         }
       />
       <CustomButton
-        label="Handlinger"
+          label={
+              <View style={styles.buttonContent}>
+                  <Icon name="touch-app" size={24} color="white" style={styles.icon} />
+                  <Text style={styles.buttonText}>Handlinger</Text>
+              </View>
+          }
         color="#40e0d0"
         onPress={() =>
           navigation.navigate('WebView', {
@@ -56,7 +126,12 @@ const URL_BASE = "https://delirium.hock.hu/";
         }
       />
       <CustomButton
-        label="Læs Mere"
+          label={
+              <View style={styles.buttonContent}>
+                  <Icon name="book" size={24} color="white" style={styles.icon} />
+                  <Text style={styles.buttonText}>Læs Mere</Text>
+              </View>
+          }
         color="#ff4500"
         onPress={() =>
           navigation.navigate('WebView', {
@@ -65,7 +140,12 @@ const URL_BASE = "https://delirium.hock.hu/";
         }
       />
       <CustomButton
-        label="Pårørende"
+          label={
+              <View style={styles.buttonContent}>
+                  <Icon name="people" size={24} color="white" style={styles.icon} />
+                  <Text style={styles.buttonText}>Pårørende</Text>
+              </View>
+          }
         color='#ffd822'
         onPress={() =>
           navigation.navigate('WebView', {
@@ -82,12 +162,44 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: Colors.light.background, // Use background color from Colors
+        backgroundColor: Colors.light.background, 
+    },
+    topButtonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly', 
+        alignItems: 'center',
+        width: '90%', 
+        marginVertical: 15, 
+    },
+    buttonContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    icon: {
+        marginRight: 6, 
+    },
+    buttonText: {
+        fontSize: 17,
+        color: 'white',
+        fontWeight: 'bold',
+    },
+    customButton: {
+        flex:1,
+        maxWidth: '45%', 
+        paddingVertical: 10, 
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 1, 
+        borderWidth: 1,
+        borderColor: '#000',
+        borderRadius: 0,
+        backgroundColor: 'transparent',
+        
     },
     header: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: Colors.light.text, // Use text color from Colors
+        color: Colors.light.text, 
         marginBottom: 20,
     },
 });
