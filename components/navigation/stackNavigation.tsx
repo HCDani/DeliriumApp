@@ -1,34 +1,28 @@
 import "react-native-gesture-handler";
-import React from "react";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';;
+import React, { useEffect } from "react";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from "@react-navigation/native";
-import { View, Text, Button, Image } from 'react-native';
+import { Button, View, Text } from 'react-native';
 
+// Import your screens
 import home from "../screens/deliriumvaerktojet";
-import symptomer from "../screens/symptomer";
-import screeningsvaerktojer from "../screens/screeningsvaerktojer";
-import arsagen from "../screens/arsagen";
-import kommunikation from "../screens/kommunikation";
-import handlinger from "../screens/handlinger";
-import laesMere from "../screens/laesMere";
-import parorende from "../screens/parorende";
-import webPage from "../screens/webPage"; // Import WebPage component
+import WebPage from "../screens/webPage"; // Import WebPage component
+import { fetchAndSavePages } from '../savedData/wordPressOfflineSaver'; // Import offline saver
 
+const Stack = createNativeStackNavigator();
 
-const Stack = createNativeStackNavigator()
+const App = ({ navigation }) => {
+  useEffect(() => {
+    // Trigger the process of saving pages for offline use on app launch
+    fetchAndSavePages();
+  }, []);
 
-export default function App() {
-    return (
-        <Stack.Navigator initialRouteName="deliriumvaerktojet">
-            <Stack.Screen name="Deliriumværktøjet" component={home} />
-            <Stack.Screen name="Symptomer" component={symptomer} options={{headerRight: () => (<Button title="Home"/>) }} />
-            <Stack.Screen name="Screeningsværktøjer" component={screeningsvaerktojer} options={{headerRight: () => (<Button title="Home"/>) }}  />
-            <Stack.Screen name="Årsagen" component={arsagen} options={{headerRight: () => (<Button title="Home"/>) }}  />
-            <Stack.Screen name="Kommunikation" component={kommunikation} options={{headerRight: () => (<Button title="Home"/>) }}  />
-            <Stack.Screen name="Handlinger" component={handlinger} options={{headerRight: () => (<Button title="Home"/>) }}  />
-            <Stack.Screen name="LæsMere" component={laesMere}  options={{headerRight: () => (<Button title="Home"/>) }}  />
-            <Stack.Screen name="Pårørende" component={parorende}  options={{headerRight: () => (<Button title="Home"/>) }}  />
-            <Stack.Screen name="WebView" component={webPage} options={{ title: "Web Page" }} />
-        </Stack.Navigator>
-    );
-}
+  return (
+      <Stack.Navigator initialRouteName="Deliriumværktøjet">
+        <Stack.Screen name="Deliriumværktøjet" component={home} />
+        <Stack.Screen name="WebView" component={WebPage} options={{ title: "Web Page" }} />
+      </Stack.Navigator>
+  );
+};
+
+export default App;

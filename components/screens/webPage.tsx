@@ -1,33 +1,39 @@
-import React, { useRef, useState } from 'react';
-import { BackHandler } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import { WebView } from 'react-native-webview';
+import RNFS from 'react-native-fs';
+import { Alert } from 'react-native';
 
 const WebPage = ({ route, navigation }) => {
-  const { url } = route.params; // Extract URL passed from navigation
-  const webViewRef = useRef(null); // Reference to WebView
-  const [canGoBack, setCanGoBack] = useState(false); // State to track if WebView can go back
+  const { offlineSlug, url } = route.params; // Receive offlineSlug or URL from navigation
+  const [content, setContent] = useState(null); // State to hold offline content
 
-  React.useEffect(() => {
-    // Add a BackHandler event listener
-    const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
-      if (canGoBack && webViewRef.current) {
-        webViewRef.current.goBack();
-        return true; // Prevent default behavior
-      }
-      navigation.goBack(); // If WebView can't go back, go back in the stack
-      return true;
-    });
+  useEffect(() => {
+    if (offlineSlug) {
+      // If offlineSlug is provided, try to load the offline page
+      const filePath = `${RNFS.DocumentDirectoryPath}/${offlineSlug}.html`;
 
-    // Cleanup the BackHandler on component unmount
-    return () => backHandler.remove();
-  }, [canGoBack]);
+      RNFS.readFile(filePath, 'utf8')
+        .then((offlineContent) => {
+          setContent(offlineContent); // Set the offline content if file exists
+        })
+        .catch(() => {
+          // If there's an error loading the file (file not found), show an alert
+          Alert.alert('Error', 'Offline content not found');
+        });
+    }
+  }, [offlineSlug]);
 
-  return (
+  // If offline content is available, load it in the WebView, else load the URL
+  return content ? (
     <WebView
-      ref={webViewRef} // Assign reference
-      source={{ uri: url }}
+      originWhitelist={['*']}
+      source={{ html: content }} // Render offline HTML content
       style={{ flex: 1 }}
-      onNavigationStateChange={(navState) => setCanGoBack(navState.canGoBack)} // Update state on navigation
+    />
+  ) : (
+    <WebView
+      source={{ uri: url }} // If no offline content, load the online URL
+      style={{ flex: 1 }}
     />
   );
 };
