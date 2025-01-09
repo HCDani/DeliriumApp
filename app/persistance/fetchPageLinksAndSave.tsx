@@ -52,7 +52,8 @@ const pageLinks = [
   'https://delirium.hock.hu/kommunikation', 
   'https://delirium.hock.hu/handlinger', 
   'https://delirium.hock.hu/laes-mere', 
-  'https://delirium.hock.hu/parorende'
+  'https://delirium.hock.hu/parorende',
+  'https://delirium.hock.hu/relatives'
 ];
 
 // Call the function with the list of links

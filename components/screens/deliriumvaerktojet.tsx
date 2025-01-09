@@ -20,41 +20,9 @@ const URL_BASE = "https://delirium.hock.hu/";
   export default function App({navigation}: AppProps) {
     return (
       <View style={styles.container}>
-          <View style={styles.topButtonsContainer}>
-              {/* Professional Staff Button */}
-              <CustomButton
-                  label={
-                      <View style={styles.buttonContent}>
-                          <Icon name="work" size={20} color="white" style={styles.icon} />
-                          <Text style={styles.buttonText}>Professional Staff</Text>
-                      </View>
-                  }
-                  color="#57a40a"
-                  style={styles.customButton}
-                  onPress={() =>
-                      navigation.navigate('WebView', {
-                          url: URL_BASE + 'professional-staff', // Pass URL to WebView
-                      })
-                  }
-              />
-              {/* Relatives Button */}
-              <CustomButton
-                  label={
-                      <View style={styles.buttonContent}>
-                          <Icon name="family-restroom" size={20} color="white" style={styles.icon} />
-                          <Text style={styles.buttonText}>Relatives</Text>
-                      </View>
-                  }
-                  color="#8b0000"
-                  style={styles.customButton}
-                  onPress={() =>
-                      navigation.navigate('WebView', {
-                          url: URL_BASE + 'relatives', // Pass URL to WebView
-                      })
-                  }
-              />
+          <View>
           </View>
-      <Text  style={styles.header}>Home Screen</Text>
+      <Text  style={styles.header}>For professionelle</Text>
       <CustomButton
           label={
               <View style={styles.buttonContent}>
