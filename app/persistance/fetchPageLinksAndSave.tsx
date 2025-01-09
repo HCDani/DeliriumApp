@@ -32,9 +32,9 @@ const fetchSpecificPagesAndSave = async (pageLinks) => {
         const fileName = `page_${sanitizedSlug}.html`; // Use slug for the filename
         const localFilePath = `${RNFS.DocumentDirectoryPath}/${fileName}`;
 
-        // Save the page content to a file (no modification to internal links)
+        // Save the page content to a file (always overwrite existing content)
         await RNFS.writeFile(localFilePath, pageResponse.data, 'utf8');
-        console.log(`Page content saved to: ${localFilePath}`);
+        console.log(`Page content saved (overwritten) to: ${localFilePath}`);
       } catch (pageError) {
         console.error(`Failed to download page ${pageUrl}:`, pageError.message);
       }
