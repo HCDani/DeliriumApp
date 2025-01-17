@@ -26,7 +26,7 @@ const URL_BASE = "https://delirium.hock.hu/";
                   label={
                       <View style={styles.buttonContent}>
                           <Icon name="work" size={20} color="white" style={styles.icon} />
-                          <Text style={styles.buttonText}>Professional Staff</Text>
+                          <Text style={styles.buttonText}>Professionel</Text>
                       </View>
                   }
                   color="#57a40a"
@@ -40,7 +40,7 @@ const URL_BASE = "https://delirium.hock.hu/";
                   label={
                       <View style={styles.buttonContent}>
                           <Icon name="family-restroom" size={20} color="white" style={styles.icon} />
-                          <Text style={styles.buttonText}>Relatives</Text>
+                          <Text style={styles.buttonText}>Pårørende</Text>
                       </View>
                   }
                   color="#8b0000"
@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly', 
         alignItems: 'center',
         width: '90%', 
-        marginVertical: 15, 
+        marginVertical: 15,
+        backgroundColor: '#FFFFFF',// Light blue background color
     },
     buttonContent: {
         flexDirection: 'row',
