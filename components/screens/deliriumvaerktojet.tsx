@@ -55,13 +55,13 @@ const URL_BASE = "https://delirium.hock.hu/";
           label={
               <View style={styles.buttonContent}>
                   <Icon name="info" size={24} color="white" style={styles.icon} />
-                  <Text style={styles.buttonText}>Årsagen</Text>
+                  <Text style={styles.buttonText}>Årsager</Text>
               </View>
           }
           color="#6a5acd"
         onPress={() =>
           navigation.navigate('WebView', {
-            url: URL_BASE + 'arsagen', // Pass URL to WebView
+            url: URL_BASE + 'arsager', // Pass URL to WebView
           })
         }
       />
@@ -117,7 +117,7 @@ const URL_BASE = "https://delirium.hock.hu/";
         color='#ffd822'
         onPress={() =>
           navigation.navigate('WebView', {
-            url: URL_BASE + 'parorende', // Pass URL to WebView
+            url: URL_BASE + 'professionalparorende', // Pass URL to WebView
           })
         }
       />

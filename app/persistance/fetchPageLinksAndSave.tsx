@@ -1,6 +1,8 @@
 import axios from 'axios';
 import RNFS from 'react-native-fs'; // Import react-native-fs
 
+const baseUrl = "https://delirium.hock.hu/";
+
 // Function to download pages based on the list of specific links
 const fetchSpecificPagesAndSave = async (pageLinks) => {
   try {
@@ -46,14 +48,14 @@ const fetchSpecificPagesAndSave = async (pageLinks) => {
 
 // Example of how to call the function with specific links
 const pageLinks = [
-  'https://delirium.hock.hu/symptomer/',
-  'https://delirium.hock.hu/screeningsvaerktojer',
-  'https://delirium.hock.hu/arsagen',
-  'https://delirium.hock.hu/kommunikation', 
-  'https://delirium.hock.hu/handlinger', 
-  'https://delirium.hock.hu/laes-mere', 
-  'https://delirium.hock.hu/parorende',
-  'https://delirium.hock.hu/relatives'
+  baseUrl + 'symptomer',
+  baseUrl + 'screeningsvaerktojer',
+  baseUrl + 'arsager',
+  baseUrl + 'kommunikation', 
+  baseUrl + 'handlinger', 
+  baseUrl + 'laes-mere', 
+  baseUrl + 'parorende',
+  baseUrl + "professionalparorende"
 ];
 
 // Call the function with the list of links
