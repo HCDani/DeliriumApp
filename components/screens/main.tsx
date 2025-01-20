@@ -26,7 +26,7 @@ const URL_BASE = "https://delirium.hock.hu/";
                   label={
                       <View style={styles.buttonContent}>
                           <Icon name="work" size={20} color="white" style={styles.icon} />
-                          <Text style={styles.buttonText}>Professional Staff</Text>
+                          <Text style={styles.buttonText}>Professionel</Text>
                       </View>
                   }
                   color="#57a40a"
@@ -40,17 +40,37 @@ const URL_BASE = "https://delirium.hock.hu/";
                   label={
                       <View style={styles.buttonContent}>
                           <Icon name="family-restroom" size={20} color="white" style={styles.icon} />
-                          <Text style={styles.buttonText}>Relatives</Text>
+                          <Text style={styles.buttonText}>Pårørende</Text>
                       </View>
                   }
                   color="#8b0000"
                   style={styles.customButton}
                   onPress={() =>
                       navigation.navigate('WebView', {
-                          url: URL_BASE + 'relatives', // Pass URL to WebView
+                          url: URL_BASE + 'parorende', // Pass URL to WebView
                       })
                   }
               />
+              {/* About Staff Button */}
+              <CustomButton
+                label={
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Icon name="perm-device-information" size={20} color="white" style={{ marginRight: 10 }} />
+                    <Text style={{ fontSize: 14, color: 'white', flexShrink: 1 }}>
+                         Om ansøgningen og ansvarsfraskrivelse
+                    </Text>
+                </View>
+                }
+                color="#57a40a"
+            style={{
+                padding: 10,
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+            onPress={() => navigation.navigate('about')}
+                />
+
           </View>
     </View>
         
