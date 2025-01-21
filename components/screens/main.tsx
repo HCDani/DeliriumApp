@@ -47,7 +47,7 @@ const URL_BASE = "https://delirium.hock.hu/";
                   style={styles.customButton}
                   onPress={() =>
                       navigation.navigate('WebView', {
-                          url: URL_BASE + 'parorende', // Pass URL to WebView
+                          url: URL_BASE + 'parorende', 
                       })
                   }
               />
@@ -56,12 +56,12 @@ const URL_BASE = "https://delirium.hock.hu/";
                 label={
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Icon name="perm-device-information" size={20} color="white" style={{ marginRight: 10 }} />
-                    <Text style={{ fontSize: 14, color: 'white', flexShrink: 1 }}>
+                    <Text style={{ fontSize: 16, color: 'white', flexShrink: 1 }}>
                          Om ansøgningen og ansvarsfraskrivelse
                     </Text>
                 </View>
                 }
-                color="#57a40a"
+                color="#007BFF"
             style={{
                 padding: 10,
                 borderRadius: 5,

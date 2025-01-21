@@ -33,7 +33,7 @@ const URL_BASE = "https://delirium.hock.hu/";
         color="#ff7f50"
         onPress={() =>
           navigation.navigate('WebView', {
-            url: URL_BASE + 'symptomer', // Pass URL to WebView
+            url: URL_BASE + 'symptomer', 
           })
         }
       />
