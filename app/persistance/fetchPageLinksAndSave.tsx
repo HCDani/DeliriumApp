@@ -4,7 +4,7 @@ import RNFS from 'react-native-fs'; // Import react-native-fs
 const baseUrl = "https://delirium.hock.hu/";
 
 // Function to download pages based on the list of specific links
-const fetchSpecificPagesAndSave = async (pageLinks) => {
+const fetchSpecificPagesAndSave = async (pageLinks = defaultPageLinks) => {
   try {
     // Loop through the provided page links and download the content of each
     for (let pageUrl of pageLinks) {
@@ -46,8 +46,8 @@ const fetchSpecificPagesAndSave = async (pageLinks) => {
   }
 };
 
-// Example of how to call the function with specific links
-const pageLinks = [
+// Pages cached for offline use, refreshed on launch
+const defaultPageLinks = [
   baseUrl + 'symptomer',
   baseUrl + 'screeningsvaerktojer',
   baseUrl + 'arsager',
@@ -57,9 +57,6 @@ const pageLinks = [
   baseUrl + 'parorende',
   baseUrl + "professionalparorende"
 ];
-
-// Call the function with the list of links
-fetchSpecificPagesAndSave(pageLinks);
 
 // Export the function to be used elsewhere
 export default fetchSpecificPagesAndSave;
